@@ -6,6 +6,7 @@ Graduation project, Nile University, Computer Science.
 ## Repository layout
 
 - `mobile/`: Flutter app (Android and iOS)
+- `backend/core-api/`: Spring Boot REST API (Java 21, PostgreSQL)
 
 ## Mobile app
 
@@ -36,6 +37,33 @@ Graduation project, Nile University, Computer Science.
 
 Copy `mobile/.env.example` to `mobile/.env` and fill in the values.
 Never commit `.env` or API keys.
+
+## Backend
+
+### Running with Docker
+
+1. Copy the env file and fill in your values (defaults work for local dev):
+
+       cp .env.example .env
+
+2. Start everything from the repo root:
+
+       docker compose up --build
+
+   - Spring Boot API → `http://localhost:8080`
+   - Swagger UI → `http://localhost:8080/swagger-ui/index.html`
+
+3. Stop without losing data:
+
+       docker compose stop
+
+4. Wipe everything (fresh DB):
+
+       docker compose down -v
+
+### Environment variables
+
+Copy `.env.example` to `.env` at the repo root. Never commit `.env`.
 
 ## Workflow
 
