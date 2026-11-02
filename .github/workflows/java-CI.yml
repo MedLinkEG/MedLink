@@ -1,3 +1,4 @@
+
 name: Spring Boot CI
 
 on:
@@ -25,4 +26,5 @@ jobs:
           cache: maven
 
       - name: Build and run tests
+        working-directory: backend/core-api
         run: mvn --batch-mode --no-transfer-progress clean verify
