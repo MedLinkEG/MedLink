@@ -1,5 +1,4 @@
 abstract final class AppStrings {
-
   static const appName = 'MedLink';
   static const welcomeTagline =
       'Find medicines and medical devices near you, '

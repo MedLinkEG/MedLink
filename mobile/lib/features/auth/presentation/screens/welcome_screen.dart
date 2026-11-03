@@ -3,10 +3,11 @@ import 'package:medlink/core/constants/app_strings.dart';
 import 'package:medlink/core/theme/app_colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
-
+  const WelcomeScreen({super.key});
+  
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
