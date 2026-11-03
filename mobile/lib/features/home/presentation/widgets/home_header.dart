@@ -63,10 +63,7 @@ class HomeHeader extends StatelessWidget {
                 const SizedBox(height: 12),
                 LocationSelector(label: locationLabel, onTap: onLocationTap),
                 const SizedBox(height: 12),
-                HomeSearchBar(
-                  onSearchTap: onSearchTap,
-                  onScanTap: onScanTap,
-                ),
+                HomeSearchBar(onSearchTap: onSearchTap, onScanTap: onScanTap),
               ],
             ),
           ),
