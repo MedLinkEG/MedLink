@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medlink/core/theme/app_theme.dart';
-import 'package:medlink/features/home/presentation/home_page.dart';
+import 'package:medlink/features/auth/presentation/screens/welcome_screen.dart';
 
 class MedLinkApp extends StatelessWidget {
   const MedLinkApp({super.key});
@@ -11,7 +11,7 @@ class MedLinkApp extends StatelessWidget {
       title: 'MedLink',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      home: const HomePage(),
+      home: const WelcomeScreen(),
     );
   }
 }
