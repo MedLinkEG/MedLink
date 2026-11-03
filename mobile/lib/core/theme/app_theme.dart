@@ -23,7 +23,7 @@ abstract final class AppTheme {
 
       filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        backgroundColor: AppColors.outlinedButtonColor,
+        backgroundColor: AppColors.navy,
         foregroundColor: AppColors.surface,
         minimumSize: const Size(64, 54),
         shape: corners,
@@ -34,12 +34,12 @@ abstract final class AppTheme {
       
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.textThried,
+          foregroundColor: AppColors.navy,
           shape: corners,
           textStyle: buttonText,
           minimumSize: const Size(64, 54),
           side: const BorderSide(
-            color: AppColors.outlinedButtonColor,
+            color: AppColors.navy,
             width: 1.5,
           ),
         ),
@@ -47,7 +47,7 @@ abstract final class AppTheme {
 
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: AppColors.textThried,
+          foregroundColor: AppColors.navy,
           textStyle: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w600,
