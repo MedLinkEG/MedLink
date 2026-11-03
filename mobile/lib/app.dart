@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medlink/core/theme/app_theme.dart';
+import 'package:medlink/features/home/presentation/home_page.dart';
 
 class MedLinkApp extends StatelessWidget {
   const MedLinkApp({super.key});
@@ -7,8 +9,9 @@ class MedLinkApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MedLink',
-      theme: ThemeData(colorSchemeSeed: Colors.teal, useMaterial3: true),
-      home: const Scaffold(body: Center(child: Text('MedLink'))),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      home: const HomePage(),
     );
   }
 }
