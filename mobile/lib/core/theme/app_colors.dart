@@ -12,6 +12,7 @@ abstract final class AppColors {
 
   static const textPrimary = Color(0xFF10283F);
   static const textSecondary = Color(0xFF4A6173);
+  static const textThried = Color(0xFF1F5F78);
 
   static const discountBg = Color(0xFFFFE3B8);
   static const discountText = Color(0xFF6B4200);
@@ -26,6 +27,8 @@ abstract final class AppColors {
 
   static const cardShadow = Color(0x1410283F);
   static const searchShadow = Color(0x4702346B);
+
+  static const outlinedButtonColor = Color(0xFF2A7B9B);
 
   static const brandGradient = LinearGradient(
     begin: Alignment(-1, -0.6),
