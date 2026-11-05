@@ -1,0 +1,12 @@
+{
+  "@@locale": "ar",
+  "appName": "ميدلينك",
+  "welcomeTagline": "ابحث عن الأدوية والأجهزة الطبية القريبة منك، حتى النادرة منها.",
+  "featureNearby": "اعرف أي بائع قريب منك يتوفر لديه المنتج",
+  "featureAlerts": "احصل على تنبيه عند توفر المنتج الناقص",
+  "featureVerified": "اشترِ فقط من بائعين مرخّصين وموثّقين",
+  "createAccount": "إنشاء حساب",
+  "logIn": "تسجيل الدخول",
+  "browseAsGuest": "تصفّح كضيف",
+  "switchLanguage": "English"
+}
