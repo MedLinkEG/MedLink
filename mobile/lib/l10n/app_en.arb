@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "appName": "MedLink",
+  "welcomeTagline": "Find medicines and medical devices near you, even when they’re hard to find.",
+  "featureNearby": "See which nearby sellers have each item",
+  "featureAlerts": "Get alerted when a missing item is back",
+  "featureVerified": "Buy only from license-verified sellers",
+  "createAccount": "Create account",
+  "logIn": "Log in",
+  "browseAsGuest": "Browse as guest",
+  "switchLanguage": "عربي",
+  "@switchLanguage": {
+    "description": "Label of the language button: the language you can switch to."
+  }
+}
