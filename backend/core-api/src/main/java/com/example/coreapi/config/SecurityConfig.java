@@ -20,6 +20,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import jakarta.servlet.DispatcherType;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -63,6 +65,10 @@ public class SecurityConfig {
 
                 // Define endpoint authorization
                 .authorizeHttpRequests(auth -> auth
+
+                        // Allow Spring to process servlet error dispatches
+                        .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
+
                         .requestMatchers(
                                 HttpMethod.POST,
                                 "/api/auth/register",
