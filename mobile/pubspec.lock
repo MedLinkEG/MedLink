@@ -213,22 +213,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  get:
-    dependency: "direct main"
-    description:
-      name: get
-      sha256: "5ed34a7925b85336e15d472cc4cfe7d9ebf4ab8e8b9f688585bf6b50f4c3d79a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.7.3"
   go_router:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "530dcbb298dc7c319aea9e3b7c580a61effb2abee2c93825d2dd8d5af0e230f1"
+      sha256: d4105f50c438c37d0d1372b1fbf1617fe9be398b559fa29d2067756ebbd42b69
       url: "https://pub.dev"
     source: hosted
-    version: "18.0.2"
+    version: "18.1.4"
   hooks:
     dependency: transitive
     description:

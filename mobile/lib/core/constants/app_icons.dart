@@ -9,7 +9,7 @@ abstract final class AppIcons {
 
   // Language button
   static const IconData language = Icons.translate_rounded;
-  
+
   // Log in
   static const IconData add = Icons.add_rounded;
   static const IconData email = Icons.mail_outline_rounded;

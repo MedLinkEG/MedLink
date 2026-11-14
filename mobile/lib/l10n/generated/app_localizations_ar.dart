@@ -36,4 +36,47 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get switchLanguage => 'English';
+
+  @override
+  String get loginTitle => 'مرحبًا بعودتك';
+
+  @override
+  String get loginSubtitle =>
+      'سجّل الدخول لترى تنبيهاتك ومحادثاتك وعمليات البحث المحفوظة.';
+
+  @override
+  String get emailLabel => 'البريد الإلكتروني';
+
+  @override
+  String get emailHint => 'you@example.com';
+
+  @override
+  String get passwordLabel => 'كلمة المرور';
+
+  @override
+  String get forgotPassword => 'نسيت كلمة المرور؟';
+
+  @override
+  String get orDivider => 'أو';
+
+  @override
+  String get unlockWithFingerprint => 'الدخول ببصمة الإصبع';
+
+  @override
+  String get newToMedLink => 'جديد على ميدلينك؟';
+
+  @override
+  String get showPassword => 'إظهار كلمة المرور';
+
+  @override
+  String get hidePassword => 'إخفاء كلمة المرور';
+
+  @override
+  String get emailRequired => 'أدخل بريدك الإلكتروني';
+
+  @override
+  String get emailInvalid => 'أدخل بريدًا إلكترونيًا صحيحًا';
+
+  @override
+  String get passwordRequired => 'أدخل كلمة المرور';
 }
