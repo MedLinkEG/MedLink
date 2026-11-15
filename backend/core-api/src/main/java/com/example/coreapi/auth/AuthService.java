@@ -9,11 +9,16 @@ import com.example.coreapi.security.CustomUserDetailsService;
 import com.example.coreapi.security.JwtService;
 import com.example.coreapi.user.User;
 import com.example.coreapi.user.UserRepository;
-
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.example.coreapi.auth.dto.LoginRequest;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.sql.SQLException;
 import java.time.OffsetDateTime;
@@ -28,17 +33,56 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final CustomUserDetailsService userDetailsService;
+    private final AuthenticationManager authenticationManager;
 
     public AuthService(
             UserRepository userRepository,
             PasswordEncoder passwordEncoder,
             JwtService jwtService,
-            CustomUserDetailsService userDetailsService) {
+            CustomUserDetailsService userDetailsService,
+            AuthenticationManager authenticationManager) {
 
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.userDetailsService = userDetailsService;
+        this.authenticationManager = authenticationManager;
+    }
+
+    @Transactional(readOnly = true)
+    public AuthResponse login(LoginRequest request) {
+
+        // Normalize email
+        String email = request.email()
+                .trim()
+                .toLowerCase(Locale.ROOT);
+
+        try {
+
+            // Authenticate user credentials
+            var authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            email,
+                            request.password()
+                    )
+            );
+
+            // Get authenticated user
+            CustomUserDetails userDetails =
+                    (CustomUserDetails) authentication.getPrincipal();
+
+            // Generate JWT
+            String token = jwtService.generateToken(userDetails);
+
+            return new AuthResponse(token, "Bearer");
+
+        } catch (AuthenticationException exception) {
+
+            throw new ResponseStatusException(
+                    HttpStatus.UNAUTHORIZED,
+                    "Invalid email or password"
+            );
+        }
     }
 
     @Transactional
