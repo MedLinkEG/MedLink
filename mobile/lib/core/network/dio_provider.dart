@@ -9,7 +9,6 @@ final dioProvider = Provider<Dio>((ref) {
       connectTimeout: ApiConstants.connectTimeout,
       receiveTimeout: ApiConstants.receiveTimeout,
       contentType: Headers.jsonContentType,
-      responseType: ResponseType.json,
     ),
   );
   ref.onDispose(dio.close);
