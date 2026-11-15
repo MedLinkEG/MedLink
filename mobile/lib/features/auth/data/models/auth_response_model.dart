@@ -7,8 +7,7 @@ class AuthResponseModel {
   factory AuthResponseModel.fromJson(Map<String, dynamic> json) {
     return AuthResponseModel(
       accessToken: json['accessToken'] as String,
-      tokenType:
-          json['tokenType'] as String? ?? ApiConstants.defaultTokenType,
+      tokenType: json['tokenType'] as String? ?? ApiConstants.defaultTokenType,
     );
   }
 

@@ -2,11 +2,9 @@ sealed class Failure implements Exception {
   const Failure();
 }
 
-
 final class NetworkFailure extends Failure {
   const NetworkFailure();
 }
-
 
 final class InvalidDataFailure extends Failure {
   const InvalidDataFailure();
@@ -23,7 +21,6 @@ final class ConflictFailure extends Failure {
 final class ServerFailure extends Failure {
   const ServerFailure();
 }
-
 
 final class UnknownFailure extends Failure {
   const UnknownFailure();
