@@ -36,4 +36,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get switchLanguage => 'عربي';
+
+  @override
+  String get loginTitle => 'Welcome back';
+
+  @override
+  String get loginSubtitle =>
+      'Log in to see your alerts, chats and saved searches.';
+
+  @override
+  String get emailLabel => 'Email';
+
+  @override
+  String get emailHint => 'you@example.com';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get forgotPassword => 'Forgot password?';
+
+  @override
+  String get orDivider => 'or';
+
+  @override
+  String get unlockWithFingerprint => 'Unlock with fingerprint';
+
+  @override
+  String get newToMedLink => 'New to MedLink?';
+
+  @override
+  String get showPassword => 'Show password';
+
+  @override
+  String get hidePassword => 'Hide password';
+
+  @override
+  String get emailRequired => 'Enter your email';
+
+  @override
+  String get emailInvalid => 'Enter a valid email address';
+
+  @override
+  String get passwordRequired => 'Enter your password';
 }

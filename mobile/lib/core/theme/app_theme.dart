@@ -10,6 +10,13 @@ abstract final class AppTheme {
     borderRadius: BorderRadius.circular(16),
   );
 
+  static OutlineInputBorder fieldBorder(Color color, {double width = 1.5}) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(14),
+      borderSide: BorderSide(color: color, width: width),
+    );
+  }
+
   static ThemeData get light {
     return ThemeData(
       useMaterial3: true,
@@ -46,6 +53,23 @@ abstract final class AppTheme {
           textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
           minimumSize: const Size(48, 48),
         ),
+      ),
+
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.surface,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
+        hintStyle: const TextStyle(color: AppColors.textSecondary),
+        prefixIconColor: AppColors.textSecondary,
+        suffixIconColor: AppColors.textSecondary,
+        border: fieldBorder(AppColors.navBorder),
+        enabledBorder: fieldBorder(AppColors.navBorder),
+        focusedBorder: fieldBorder(AppColors.navy, width: 2),
+        errorBorder: fieldBorder(Colors.red.shade700),
+        focusedErrorBorder: fieldBorder(Colors.red.shade700, width: 2),
       ),
     );
   }

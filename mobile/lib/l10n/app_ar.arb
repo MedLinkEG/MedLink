@@ -8,5 +8,21 @@
   "createAccount": "إنشاء حساب",
   "logIn": "تسجيل الدخول",
   "browseAsGuest": "تصفّح كضيف",
-  "switchLanguage": "English"
+  "switchLanguage": "English",
+
+  "loginTitle": "مرحبًا بعودتك",
+  "loginSubtitle": "سجّل الدخول لترى تنبيهاتك ومحادثاتك وعمليات البحث المحفوظة.",
+  "emailLabel": "البريد الإلكتروني",
+  "emailHint": "you@example.com",
+  "passwordLabel": "كلمة المرور",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "orDivider": "أو",
+  "unlockWithFingerprint": "الدخول ببصمة الإصبع",
+  "newToMedLink": "جديد على ميدلينك؟",
+  "showPassword": "إظهار كلمة المرور",
+  "hidePassword": "إخفاء كلمة المرور",
+  "emailRequired": "أدخل بريدك الإلكتروني",
+  "emailInvalid": "أدخل بريدًا إلكترونيًا صحيحًا",
+  "passwordRequired": "أدخل كلمة المرور"
 }
+
