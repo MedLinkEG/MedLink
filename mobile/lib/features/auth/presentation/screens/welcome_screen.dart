@@ -4,6 +4,7 @@ import 'package:medlink/core/constants/app_icons.dart';
 import 'package:medlink/core/l10n/locale_provider.dart';
 import 'package:medlink/core/theme/app_colors.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
+import 'package:medlink/features/home/presentation/home_page.dart';
 
 /// Welcome screen: gradient card with a language button, three feature
 /// lines, and three buttons. Button styles come from AppTheme, text from
@@ -78,7 +79,15 @@ class WelcomeScreen extends ConsumerWidget {
               FilledButton(onPressed: () {}, child: Text(l10n.createAccount)),
               const SizedBox(height: 12),
               OutlinedButton(onPressed: () {}, child: Text(l10n.logIn)),
-              TextButton(onPressed: () {}, child: Text(l10n.browseAsGuest)),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
+                child: Text(l10n.browseAsGuest),
+              ),
             ],
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medlink/features/home/presentation/widgets/category_shortcuts.dart';
 import 'package:medlink/features/home/presentation/widgets/home_header.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +11,11 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [HomeHeader(hasUnreadNotifications: true)],
+          children: [
+            HomeHeader(hasUnreadNotifications: true),
+            SizedBox(height: 16),
+            CategoryShortcuts(),
+          ],
         ),
       ),
     );
