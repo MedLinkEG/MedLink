@@ -9,4 +9,12 @@ abstract final class AppIcons {
 
   // Language button
   static const IconData language = Icons.translate_rounded;
+
+  // Log in
+  static const IconData add = Icons.add_rounded;
+  static const IconData email = Icons.mail_outline_rounded;
+  static const IconData lock = Icons.lock_outline_rounded;
+  static const IconData showPassword = Icons.visibility_outlined;
+  static const IconData hidePassword = Icons.visibility_off_outlined;
+  static const IconData fingerprint = Icons.fingerprint_rounded;
 }

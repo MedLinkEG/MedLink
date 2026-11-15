@@ -11,5 +11,21 @@
   "switchLanguage": "عربي",
   "@switchLanguage": {
     "description": "Label of the language button: the language you can switch to."
-  }
+  },
+
+  "loginTitle": "Welcome back",
+  "loginSubtitle": "Log in to see your alerts, chats and saved searches.",
+  "emailLabel": "Email",
+  "emailHint": "you@example.com",
+  "passwordLabel": "Password",
+  "forgotPassword": "Forgot password?",
+  "orDivider": "or",
+  "unlockWithFingerprint": "Unlock with fingerprint",
+  "newToMedLink": "New to MedLink?",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password",
+  "emailRequired": "Enter your email",
+  "emailInvalid": "Enter a valid email address",
+  "passwordRequired": "Enter your password"
 }
+
