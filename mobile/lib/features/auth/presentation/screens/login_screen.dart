@@ -93,7 +93,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: AppSpacing.xl),
 
-                // 3. Password, with Forgot password on the same line.
                 Row(
                   children: [
                     Expanded(child: _FieldLabel(l10n.passwordLabel)),
@@ -128,19 +127,32 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: AppSpacing.xxl),
 
-
                 FilledButton(
                   onPressed: _logIn,
                   child: Text(l10n.logIn),
                 ),
                 const SizedBox(height: AppSpacing.lg),
 
+                // 5. "or" line and fingerprint unlock.
                 _OrDivider(label: l10n.orDivider),
                 const SizedBox(height: AppSpacing.lg),
                 OutlinedButton.icon(
                   onPressed: () {},
                   icon: const Icon(AppIcons.fingerprint),
                   label: Text(l10n.unlockWithFingerprint),
+                ),
+                const SizedBox(height: AppSpacing.xxxl),
+
+                // 6. Link to sign up.
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(l10n.newToMedLink, style: AppTextStyles.muted),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(l10n.createAccount),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -187,7 +199,6 @@ class _FieldLabel extends StatelessWidget {
   }
 }
 
-/// A thin line, a word ("or"), then another thin line.
 class _OrDivider extends StatelessWidget {
   const _OrDivider({required this.label});
 
