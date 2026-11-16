@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:medlink/core/router/app_routes.dart';
 import 'package:medlink/features/auth/presentation/screens/login_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/welcome_screen.dart';
-import 'package:medlink/features/home/presentation/home_page.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
@@ -13,8 +12,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.welcome,
         builder: (_, _) => const WelcomeScreen(),
       ),
-      GoRoute(path: AppRoutes.login, builder: (_, _) => const LoginScreen()),
-      GoRoute(path: AppRoutes.home, builder: (_, _) => const HomePage()),
+      GoRoute(
+        path: AppRoutes.login,
+        builder: (_, _) => const LoginScreen(),
+      ),
     ],
   );
   ref.onDispose(router.dispose);
