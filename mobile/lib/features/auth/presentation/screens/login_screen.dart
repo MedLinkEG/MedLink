@@ -6,7 +6,6 @@ import 'package:medlink/core/theme/app_text_styles.dart';
 import 'package:medlink/core/utils/validators.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -27,6 +26,11 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  void _logIn() {
+    final isValid = _formKey.currentState?.validate() ?? false;
+    if (!isValid) return;
+  }
+
   String? _validateEmail(String? value, AppLocalizations l10n) {
     final email = value?.trim() ?? '';
     if (email.isEmpty) return l10n.emailRequired;
@@ -44,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      // Shows a back arrow automatically when opened from Welcome.
+
       appBar: AppBar(
         backgroundColor: AppColors.background,
         scrolledUnderElevation: 0,
@@ -94,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Expanded(child: _FieldLabel(l10n.passwordLabel)),
                     TextButton(
-                      onPressed: () {}, // TODO(team): open Forgot password.
+                      onPressed: () {},
                       child: Text(l10n.forgotPassword),
                     ),
                   ],
@@ -104,6 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: _hidePassword,
                   textInputAction: TextInputAction.done,
                   autofillHints: const [AutofillHints.password],
+                  onFieldSubmitted: (_) => _logIn(),
                   decoration: InputDecoration(
                     prefixIcon: const Icon(AppIcons.lock),
                     suffixIcon: IconButton(
@@ -122,6 +127,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   validator: (value) => _validatePassword(value, l10n),
                 ),
                 const SizedBox(height: AppSpacing.xxl),
+
+
+                FilledButton(
+                  onPressed: _logIn,
+                  child: Text(l10n.logIn),
+                ),
+                const SizedBox(height: AppSpacing.lg),
+
+                _OrDivider(label: l10n.orDivider),
+                const SizedBox(height: AppSpacing.lg),
+                OutlinedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(AppIcons.fingerprint),
+                  label: Text(l10n.unlockWithFingerprint),
+                ),
               ],
             ),
           ),
@@ -131,7 +151,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-/// The brand tile at the top: a white plus on the navy-to-teal gradient.
 class _LogoTile extends StatelessWidget {
   const _LogoTile();
 
@@ -164,6 +183,27 @@ class _FieldLabel extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: AppSpacing.sm),
       child: Text(text, style: AppTextStyles.fieldLabel),
+    );
+  }
+}
+
+/// A thin line, a word ("or"), then another thin line.
+class _OrDivider extends StatelessWidget {
+  const _OrDivider({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const Expanded(child: Divider()),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+          child: Text(label, style: AppTextStyles.muted),
+        ),
+        const Expanded(child: Divider()),
+      ],
     );
   }
 }
