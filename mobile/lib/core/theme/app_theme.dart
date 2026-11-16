@@ -68,9 +68,10 @@ abstract final class AppTheme {
         border: fieldBorder(AppColors.navBorder),
         enabledBorder: fieldBorder(AppColors.navBorder),
         focusedBorder: fieldBorder(AppColors.navy, width: 2),
-        errorBorder: fieldBorder(Colors.red.shade700),
-        focusedErrorBorder: fieldBorder(Colors.red.shade700, width: 2),
+        errorBorder: fieldBorder(AppColors.error, width: 2),
+        focusedErrorBorder: fieldBorder(AppColors.error, width: 2),
       ),
+      dividerTheme: const DividerThemeData(color: AppColors.navBorder),
     );
   }
 }

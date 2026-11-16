@@ -27,6 +27,10 @@ abstract final class AppColors {
   static const cardShadow = Color(0x1410283F);
   static const searchShadow = Color(0x4702346B);
 
+  static const error = Color(0xFFC62828);
+
+  static const onBrand = Color(0xFFFFFFFF);
+
   static const brandGradient = LinearGradient(
     begin: Alignment(-1, -0.6),
     end: Alignment(1, 0.6),
