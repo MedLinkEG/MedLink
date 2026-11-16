@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:medlink/core/constants/app_icons.dart';
 import 'package:medlink/core/theme/app_colors.dart';
 import 'package:medlink/core/theme/app_sizes.dart';
+import 'package:medlink/core/theme/app_text_styles.dart';
+import 'package:medlink/l10n/generated/app_localizations.dart';
 
-/// Log in screen (UI only): built step by step, one commit per part.
-///
-/// Nothing is hard-coded here: text comes from the .arb files, colours from
-/// AppColors, sizes from AppSpacing / AppRadius / AppSizes, text styles from
-/// AppTextStyles, field and button styles from AppTheme.
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Scaffold(
-      // Shows a back arrow automatically when opened from Welcome.
       appBar: AppBar(
         backgroundColor: AppColors.background,
         scrolledUnderElevation: 0,
       ),
-      // The content is added in the next commits.
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(
+          padding: const EdgeInsets.fromLTRB(
             AppSpacing.xxl,
             0,
             AppSpacing.xxl,
@@ -29,9 +28,40 @@ class LoginScreen extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [],
+            children: [
+              const Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: _LogoTile(),
+              ),
+              const SizedBox(height: AppSpacing.xl),
+              Text(l10n.loginTitle, style: AppTextStyles.screenTitle),
+              const SizedBox(height: AppSpacing.sm),
+              Text(l10n.loginSubtitle, style: AppTextStyles.screenSubtitle),
+              const SizedBox(height: AppSpacing.xxxl),
+            ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _LogoTile extends StatelessWidget {
+  const _LogoTile();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: AppSizes.logoTile,
+      height: AppSizes.logoTile,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        gradient: AppColors.brandGradient,
+      ),
+      child: const Icon(
+        AppIcons.add,
+        color: AppColors.onBrand,
+        size: AppSizes.iconLg,
       ),
     );
   }
