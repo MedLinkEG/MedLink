@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:medlink/app.dart';
 import 'package:medlink/core/storage/shared_preferences_provider.dart';
+import 'package:medlink/features/auth/presentation/screens/login_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/welcome_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,5 +49,25 @@ void main() {
   testWidgets('a saved language is used when the app opens', (tester) async {
     await pumpApp(tester, saved: {'app.language': 'ar'});
     expect(find.text('إنشاء حساب'), findsOneWidget);
+  });
+
+  testWidgets('Log in on Welcome opens the log in screen', (tester) async {
+    await pumpApp(tester);
+
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Log in'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(LoginScreen), findsOneWidget);
+  });
+
+  testWidgets('Back from Log in returns to Welcome', (tester) async {
+    await pumpApp(tester);
+
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Log in'));
+    await tester.pumpAndSettle();
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+
+    expect(find.byType(WelcomeScreen), findsOneWidget);
   });
 }
