@@ -1,12 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:medlink/core/error/dio_error_mapper.dart';
 import 'package:medlink/core/error/failures.dart';
+import 'package:medlink/core/network/api_constants.dart';
 import 'package:medlink/features/auth/data/models/auth_response_model.dart';
+import 'package:medlink/features/auth/domain/entities/log_in_data.dart';
 
 class AuthRemoteDataSource {
   const AuthRemoteDataSource(this._dio);
 
   final Dio _dio;
+
+  Future<AuthResponseModel> logIn(LogInData data) => postForSession(
+    ApiConstants.login,
+    {'email': data.email, 'password': data.password},
+  );
 
   Future<AuthResponseModel> postForSession(
     String path,
