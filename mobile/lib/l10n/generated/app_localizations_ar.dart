@@ -79,4 +79,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordRequired => 'أدخل كلمة المرور';
+
+  @override
+  String get errorInvalidCredentials =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة. حاول مرة أخرى أو أعد تعيين كلمة المرور.';
+
+  @override
+  String get errorInvalidData =>
+      'لم يتم قبول بعض البيانات. راجعها وحاول مرة أخرى.';
+
+  @override
+  String get errorNetwork =>
+      'تعذّر الاتصال بميدلينك. تحقّق من الإنترنت وحاول مرة أخرى.';
+
+  @override
+  String get errorServer => 'حدث خطأ من جهتنا. حاول مرة أخرى بعد قليل.';
+
+  @override
+  String get errorUnknown => 'حدث خطأ ما. حاول مرة أخرى.';
 }
