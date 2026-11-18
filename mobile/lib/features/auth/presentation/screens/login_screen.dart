@@ -48,7 +48,6 @@ class _LoginScreenState extends State<LoginScreen> {
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: AppColors.background,
         scrolledUnderElevation: 0,
@@ -127,10 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: AppSpacing.xxl),
 
-                FilledButton(
-                  onPressed: _logIn,
-                  child: Text(l10n.logIn),
-                ),
+                FilledButton(onPressed: _logIn, child: Text(l10n.logIn)),
                 const SizedBox(height: AppSpacing.lg),
 
                 // 5. "or" line and fingerprint unlock.

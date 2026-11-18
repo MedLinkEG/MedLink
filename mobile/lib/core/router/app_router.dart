@@ -12,10 +12,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.welcome,
         builder: (_, _) => const WelcomeScreen(),
       ),
-      GoRoute(
-        path: AppRoutes.login,
-        builder: (_, _) => const LoginScreen(),
-      ),
+      GoRoute(path: AppRoutes.login, builder: (_, _) => const LoginScreen()),
     ],
   );
   ref.onDispose(router.dispose);

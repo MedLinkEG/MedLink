@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medlink/core/theme/app_colors.dart';
 
-
 abstract final class AppTextStyles {
-  
   static const heroTitle = TextStyle(
     color: AppColors.onBrand,
     fontSize: 34,
@@ -36,18 +34,9 @@ abstract final class AppTextStyles {
     fontSize: 15,
     fontWeight: FontWeight.w600,
   );
-  static const muted = TextStyle(
-    color: AppColors.textSecondary,
-    fontSize: 14,
-  );
+  static const muted = TextStyle(color: AppColors.textSecondary, fontSize: 14);
   static const hint = TextStyle(color: AppColors.textSecondary);
 
-  static const button = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w700,
-  );
-  static const link = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.w600,
-  );
+  static const button = TextStyle(fontSize: 16, fontWeight: FontWeight.w700);
+  static const link = TextStyle(fontSize: 15, fontWeight: FontWeight.w600);
 }
