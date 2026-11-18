@@ -122,7 +122,7 @@ class _FeatureRow extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppRadius.sm),
               gradient: AppColors.brandGradient,
             ),
-            child: Icon(icon, size: AppSizes.iconMd, color: AppColors.teal),
+            child: Icon(icon, size: AppSizes.iconMd, color: AppColors.onBrand),
           ),
           const SizedBox(width: AppSpacing.md),
           Expanded(child: Text(text, style: AppTextStyles.bodyStrong)),
