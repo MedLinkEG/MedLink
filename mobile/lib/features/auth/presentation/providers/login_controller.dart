@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medlink/features/auth/domain/entities/log_in_data.dart';
 import 'package:medlink/features/auth/presentation/providers/auth_providers.dart';
 
-
 final loginControllerProvider = AsyncNotifierProvider<LoginController, void>(
   LoginController.new,
 );
