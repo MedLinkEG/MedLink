@@ -235,6 +235,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter your password'**
   String get passwordRequired;
+
+  /// No description provided for @errorInvalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong email or password. Try again or reset your password.'**
+  String get errorInvalidCredentials;
+
+  /// No description provided for @errorInvalidData.
+  ///
+  /// In en, this message translates to:
+  /// **'Some details weren’t accepted. Check them and try again.'**
+  String get errorInvalidData;
+
+  /// No description provided for @errorNetwork.
+  ///
+  /// In en, this message translates to:
+  /// **'Can’t reach MedLink. Check your internet connection and try again.'**
+  String get errorNetwork;
+
+  /// No description provided for @errorServer.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong on our side. Please try again in a moment.'**
+  String get errorServer;
+
+  /// No description provided for @errorUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get errorUnknown;
 }
 
 class _AppLocalizationsDelegate

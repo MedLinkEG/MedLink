@@ -79,4 +79,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordRequired => 'Enter your password';
+
+  @override
+  String get errorInvalidCredentials =>
+      'Wrong email or password. Try again or reset your password.';
+
+  @override
+  String get errorInvalidData =>
+      'Some details weren’t accepted. Check them and try again.';
+
+  @override
+  String get errorNetwork =>
+      'Can’t reach MedLink. Check your internet connection and try again.';
+
+  @override
+  String get errorServer =>
+      'Something went wrong on our side. Please try again in a moment.';
+
+  @override
+  String get errorUnknown => 'Something went wrong. Please try again.';
 }

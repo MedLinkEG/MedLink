@@ -29,6 +29,8 @@ abstract final class AppColors {
 
   static const error = Color(0xFFC62828);
 
+  static const errorBackground = Color(0xFFFDECEA);
+
   static const onBrand = Color(0xFFFFFFFF);
 
   static const brandGradient = LinearGradient(

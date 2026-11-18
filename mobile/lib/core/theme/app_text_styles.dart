@@ -34,6 +34,13 @@ abstract final class AppTextStyles {
     fontSize: 15,
     fontWeight: FontWeight.w600,
   );
+
+  static const error = TextStyle(
+    color: AppColors.error,
+    fontSize: 14,
+    height: 1.4,
+  );
+
   static const muted = TextStyle(color: AppColors.textSecondary, fontSize: 14);
   static const hint = TextStyle(color: AppColors.textSecondary);
 
