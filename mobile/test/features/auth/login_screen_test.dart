@@ -5,6 +5,7 @@ import 'package:medlink/core/error/failures.dart';
 import 'package:medlink/core/theme/app_theme.dart';
 import 'package:medlink/features/auth/domain/entities/auth_session.dart';
 import 'package:medlink/features/auth/domain/entities/log_in_data.dart';
+import 'package:medlink/features/auth/domain/entities/register_data.dart';
 import 'package:medlink/features/auth/domain/repositories/auth_repository.dart';
 import 'package:medlink/features/auth/presentation/providers/auth_providers.dart';
 import 'package:medlink/features/auth/presentation/screens/login_screen.dart';
@@ -21,6 +22,9 @@ class FakeAuthRepository implements AuthRepository {
     received = data;
     throw failure;
   }
+
+  @override
+  Future<AuthSession> register(RegisterData data) async => throw failure;
 
   @override
   Future<bool> hasSession() async => false;

@@ -5,6 +5,7 @@ import 'package:medlink/features/auth/data/datasources/auth_remote_data_source.d
 import 'package:medlink/features/auth/data/models/auth_response_model.dart';
 import 'package:medlink/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:medlink/features/auth/domain/entities/log_in_data.dart';
+import 'package:medlink/features/auth/domain/entities/register_data.dart';
 
 class _FakeTokenStorage implements TokenStorage {
   _FakeTokenStorage([this.token]);
@@ -29,6 +30,13 @@ class _FakeRemote implements AuthRemoteDataSource {
 
   @override
   Future<AuthResponseModel> logIn(LogInData data) async {
+    final failure = this.failure;
+    if (failure != null) throw failure;
+    return const AuthResponseModel(accessToken: 'new', tokenType: 'Bearer');
+  }
+
+  @override
+  Future<AuthResponseModel> register(RegisterData data) async {
     final failure = this.failure;
     if (failure != null) throw failure;
     return const AuthResponseModel(accessToken: 'new', tokenType: 'Bearer');
