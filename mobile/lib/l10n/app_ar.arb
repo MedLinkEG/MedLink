@@ -29,5 +29,23 @@
   "errorInvalidData": "لم يتم قبول بعض البيانات. راجعها وحاول مرة أخرى.",
   "errorNetwork": "تعذّر الاتصال بميدلينك. تحقّق من الإنترنت وحاول مرة أخرى.",
   "errorServer": "حدث خطأ من جهتنا. حاول مرة أخرى بعد قليل.",
-  "errorUnknown": "حدث خطأ ما. حاول مرة أخرى."
+  "errorUnknown": "حدث خطأ ما. حاول مرة أخرى.",
+
+  "registerTitle": "أنشئ حسابك",
+  "registerSubtitle": "دقيقة واحدة وتكون جاهزًا. ستستخدم بريدك الإلكتروني لتسجيل الدخول.",
+  "fullNameLabel": "الاسم الكامل",
+  "fullNameHint": "نور عادل",
+  "fullNameRequired": "أدخل اسمك الكامل",
+  "phoneLabel": "رقم الموبايل",
+  "phoneHint": "01012345678",
+  "phoneRequired": "أدخل رقم الموبايل",
+  "phoneInvalid": "أدخل رقمًا مصريًا يبدأ بـ 010 أو 011 أو 012 أو 015",
+  "createPasswordLabel": "أنشئ كلمة مرور",
+  "passwordRule": "{min} أحرف على الأقل",
+  "passwordTooShort": "استخدم {min} أحرف على الأقل",
+  "passwordTooLong": "استخدم {max} حرفًا أو أقل",
+  "agreeTerms": "أوافق على شروط الخدمة وسياسة الخصوصية.",
+  "termsRequired": "وافق على الشروط للمتابعة",
+  "alreadyHaveAccount": "لديك حساب بالفعل؟",
+  "errorEmailTaken": "يوجد حساب بهذا البريد الإلكتروني بالفعل. سجّل الدخول بدلًا من ذلك."
 }

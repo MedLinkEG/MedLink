@@ -8,7 +8,9 @@ abstract final class AppIcons {
   static const IconData language = Icons.translate_rounded;
 
   static const IconData add = Icons.add_rounded;
+  static const IconData person = Icons.person_outline_rounded;
   static const IconData email = Icons.mail_outline_rounded;
+  static const IconData phone = Icons.phone_iphone_rounded;
   static const IconData lock = Icons.lock_outline_rounded;
   static const IconData showPassword = Icons.visibility_outlined;
   static const IconData hidePassword = Icons.visibility_off_outlined;
