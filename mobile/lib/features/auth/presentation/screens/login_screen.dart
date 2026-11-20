@@ -11,6 +11,8 @@ import 'package:medlink/core/theme/app_text_styles.dart';
 import 'package:medlink/core/utils/validators.dart';
 import 'package:medlink/features/auth/domain/entities/log_in_data.dart';
 import 'package:medlink/features/auth/presentation/providers/login_controller.dart';
+import 'package:medlink/features/auth/presentation/widgets/auth_error_banner.dart';
+import 'package:medlink/features/auth/presentation/widgets/auth_field_label.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -112,7 +114,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 Text(l10n.loginSubtitle, style: AppTextStyles.screenSubtitle),
                 const SizedBox(height: AppSpacing.xxxl),
 
-                _FieldLabel(l10n.emailLabel),
+                AuthFieldLabel(l10n.emailLabel),
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -127,7 +129,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 const SizedBox(height: AppSpacing.xl),
 
-                _FieldLabel(l10n.passwordLabel),
+                AuthFieldLabel(l10n.passwordLabel),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: _hidePassword,
@@ -161,7 +163,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 const SizedBox(height: AppSpacing.lg),
 
                 if (loginState.hasError) ...[
-                  _ErrorBanner(message: _messageFor(loginState.error, l10n)),
+                  AuthErrorBanner(message: _messageFor(loginState.error, l10n)),
                   const SizedBox(height: AppSpacing.lg),
                 ],
 
@@ -222,20 +224,6 @@ class _LogoTile extends StatelessWidget {
   }
 }
 
-class _FieldLabel extends StatelessWidget {
-  const _FieldLabel(this.text);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-      child: Text(text, style: AppTextStyles.fieldLabel),
-    );
-  }
-}
-
 class _OrDivider extends StatelessWidget {
   const _OrDivider({required this.label});
 
@@ -252,36 +240,6 @@ class _OrDivider extends StatelessWidget {
         ),
         const Expanded(child: Divider()),
       ],
-    );
-  }
-}
-
-class _ErrorBanner extends StatelessWidget {
-  const _ErrorBanner({required this.message});
-
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.md),
-      decoration: BoxDecoration(
-        color: AppColors.errorBackground,
-        borderRadius: BorderRadius.circular(AppRadius.md),
-        border: Border.all(color: AppColors.error),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Icon(
-            AppIcons.error,
-            color: AppColors.error,
-            size: AppSizes.iconMd,
-          ),
-          const SizedBox(width: AppSpacing.sm),
-          Expanded(child: Text(message, style: AppTextStyles.error)),
-        ],
-      ),
     );
   }
 }
