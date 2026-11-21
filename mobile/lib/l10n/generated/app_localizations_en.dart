@@ -159,4 +159,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get errorEmailTaken =>
       'An account with this email already exists. Log in instead.';
+
+  @override
+  String get accountCreated => 'Account created. Log in to continue.';
 }

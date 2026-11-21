@@ -14,7 +14,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.welcome,
         builder: (_, _) => const WelcomeScreen(),
       ),
-      GoRoute(path: AppRoutes.login, builder: (_, _) => const LoginScreen()),
+      GoRoute(
+        path: AppRoutes.login,
+        builder: (_, state) =>
+            LoginScreen(initialEmail: state.extra as String?),
+      ),
       GoRoute(
         path: AppRoutes.register,
         builder: (_, _) => const RegisterScreen(),

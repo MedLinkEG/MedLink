@@ -109,7 +109,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fullNameLabel => 'الاسم الكامل';
 
   @override
-  String get fullNameHint => 'نور عادل';
+  String get fullNameHint => 'محمد باسل';
 
   @override
   String get fullNameRequired => 'أدخل اسمك الكامل';
@@ -157,4 +157,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get errorEmailTaken =>
       'يوجد حساب بهذا البريد الإلكتروني بالفعل. سجّل الدخول بدلًا من ذلك.';
+
+  @override
+  String get accountCreated => 'تم إنشاء الحساب. سجّل الدخول للمتابعة.';
 }

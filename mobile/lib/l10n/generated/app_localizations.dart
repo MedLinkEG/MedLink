@@ -367,6 +367,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'An account with this email already exists. Log in instead.'**
   String get errorEmailTaken;
+
+  /// No description provided for @accountCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created. Log in to continue.'**
+  String get accountCreated;
 }
 
 class _AppLocalizationsDelegate

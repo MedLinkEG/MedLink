@@ -15,7 +15,9 @@ import 'package:medlink/features/auth/presentation/widgets/auth_error_banner.dar
 import 'package:medlink/features/auth/presentation/widgets/auth_field_label.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
 
-
+/// Create account: full name, email, mobile number, password and the
+/// Terms checkbox. Sends them to POST /api/auth/register; on success the
+/// user goes to Log in with the email already filled in.
 class RegisterScreen extends ConsumerStatefulWidget {
   const RegisterScreen({super.key});
 
@@ -107,7 +109,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     ref.listen(registerControllerProvider, (previous, next) {
       final finished = previous?.isLoading == true && next.hasValue;
       if (finished && !next.hasError) {
-        context.go(AppRoutes.home);
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(l10n.accountCreated)));
+        // Log in next, with the new email already filled in.
+        context.pushReplacement(
+          AppRoutes.login,
+          extra: _emailController.text.trim(),
+        );
       }
     });
 

@@ -18,10 +18,9 @@ class AuthRepositoryImpl implements AuthRepository {
     return response.toEntity();
   }
 
-   @override
+  @override
   Future<AuthSession> register(RegisterData data) async {
     final response = await _remote.register(data);
-    await _tokenStorage.saveAccessToken(response.accessToken);
     return response.toEntity();
   }
 
