@@ -5,6 +5,7 @@ import 'package:medlink/features/auth/data/datasources/auth_remote_data_source.d
 import 'package:medlink/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:medlink/features/auth/domain/repositories/auth_repository.dart';
 import 'package:medlink/features/auth/domain/usecases/login_user.dart';
+import 'package:medlink/features/auth/domain/usecases/register_user.dart';
 
 final authRemoteDataSourceProvider = Provider<AuthRemoteDataSource>(
   (ref) => AuthRemoteDataSource(ref.watch(dioProvider)),
@@ -19,4 +20,8 @@ final authRepositoryProvider = Provider<AuthRepository>(
 
 final logInUserProvider = Provider<LogInUser>(
   (ref) => LogInUser(ref.watch(authRepositoryProvider)),
+);
+
+final registerUserProvider = Provider<RegisterUser>(
+  (ref) => RegisterUser(ref.watch(authRepositoryProvider)),
 );
