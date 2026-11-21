@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medlink/core/theme/app_colors.dart';
 
+const notificationBadgeKey = ValueKey<String>('notification-badge');
 const double _buttonSize = 44;
 
 class HeaderIconButton extends StatelessWidget {
@@ -36,7 +37,11 @@ class HeaderIconButton extends StatelessWidget {
               children: [
                 Icon(icon, color: Colors.white, size: 22),
                 if (showBadge)
-                  const Positioned(top: 10, right: 11, child: _Badge()),
+                  const Positioned(
+                    top: 10,
+                    right: 11,
+                    child: _Badge(key: notificationBadgeKey),
+                  ),
               ],
             ),
           ),
@@ -47,7 +52,7 @@ class HeaderIconButton extends StatelessWidget {
 }
 
 class _Badge extends StatelessWidget {
-  const _Badge();
+  const _Badge({super.key});
 
   @override
   Widget build(BuildContext context) {
