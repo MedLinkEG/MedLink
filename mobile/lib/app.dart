@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medlink/core/l10n/locale_provider.dart';
+import 'package:medlink/core/router/app_router.dart';
 import 'package:medlink/core/theme/app_theme.dart';
-import 'package:medlink/features/auth/presentation/screens/welcome_screen.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
 
 class MedLinkApp extends ConsumerWidget {
@@ -10,7 +10,7 @@ class MedLinkApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'MedLink',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
@@ -19,7 +19,7 @@ class MedLinkApp extends ConsumerWidget {
       locale: ref.watch(localeProvider),
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      home: const WelcomeScreen(),
+      routerConfig: ref.watch(appRouterProvider),
     );
   }
 }
