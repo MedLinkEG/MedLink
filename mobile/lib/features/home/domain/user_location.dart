@@ -1,3 +1,6 @@
+import 'package:flutter/foundation.dart';
+
+@immutable
 class UserLocation {
   const UserLocation({required this.id, required this.name});
 
