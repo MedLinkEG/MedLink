@@ -53,6 +53,13 @@ class _FakeRemote implements AuthRemoteDataSource {
 
 const _credentials = LogInData(email: 'a@b.com', password: '12345678');
 
+const _newAccount = RegisterData(
+  fullName: 'Nour Adel',
+  email: 'a@b.com',
+  phone: '01012345678',
+  password: '12345678',
+);
+
 void main() {
   test('no saved token means no session', () async {
     final repository = AuthRepositoryImpl(_FakeRemote(), _FakeTokenStorage());
@@ -99,6 +106,30 @@ void main() {
     await expectLater(
       repository.logIn(_credentials),
       throwsA(isA<UnauthorizedFailure>()),
+    );
+    expect(storage.token, isNull);
+  });
+
+  test('register saves the token and returns the session', () async {
+    final storage = _FakeTokenStorage();
+    final repository = AuthRepositoryImpl(_FakeRemote(), storage);
+
+    final session = await repository.register(_newAccount);
+
+    expect(session.accessToken, 'new');
+    expect(storage.token, 'new');
+  });
+
+  test('a failed register saves nothing', () async {
+    final storage = _FakeTokenStorage();
+    final repository = AuthRepositoryImpl(
+      _FakeRemote(failure: const ConflictFailure()),
+      storage,
+    );
+
+    await expectLater(
+      repository.register(_newAccount),
+      throwsA(isA<ConflictFailure>()),
     );
     expect(storage.token, isNull);
   });
