@@ -1,16 +1,7 @@
 @import "tailwindcss";
 
-:root {
-  --link-color: #555;
-  --primary-color: #ff8138;
-  --main-background: #fdf5e8;
-  --footer-background: #262626;
-  --header-height: 100px;
-  --footer-height: 80px;
-}
-
-body {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+body, input {
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .container {

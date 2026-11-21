@@ -1,84 +1,214 @@
-import { createServer, Model } from "miragejs";
 
-createServer({
-  models: {
-    vans: Model,
-  },
+import { createServer, Model, Response } from "miragejs";
 
-  seeds(server) {
-    server.create("van", {
-      id: "1",
-      name: "Modest Explorer",
-      price: 60,
-      description:
-        "The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
-      imageUrl:
-        "https://assets.scrimba.com/advanced-react/react-router/modest-explorer.png",
-      type: "simple",
-    });
-    server.create("van", {
-      id: "2",
-      name: "Beach Bum",
-      price: 80,
-      description:
-        "Beach Bum is a van inspired by surfers and travelers. It was created to be a portable home away from home, but with some cool features in it you won't find in an ordinary camper.",
-      imageUrl:
-        "https://assets.scrimba.com/advanced-react/react-router/beach-bum.png",
-      type: "rugged",
-    });
-    server.create("van", {
-      id: "3",
-      name: "Reliable Red",
-      price: 100,
-      description:
-        "Reliable Red is a van that was made for travelling. The inside is comfortable and cozy, with plenty of space to stretch out in. There's a small kitchen, so you can cook if you need to. You'll feel like home as soon as you step out of it.",
-      imageUrl:
-        "https://assets.scrimba.com/advanced-react/react-router/reliable-red.png",
-      type: "luxury",
-    });
-    server.create("van", {
-      id: "4",
-      name: "Dreamfinder",
-      price: 65,
-      description:
-        "Dreamfinder is the perfect van to travel in and experience. With a ceiling height of 2.1m, you can stand up in this van and there is great head room. The floor is a beautiful glass-reinforced plastic (GRP) which is easy to clean and very hard wearing. A large rear window and large side windows make it really light inside and keep it well ventilated.",
-      imageUrl:
-        "https://assets.scrimba.com/advanced-react/react-router/dreamfinder.png",
-      type: "simple",
-    });
-    server.create("van", {
-      id: "5",
-      name: "The Cruiser",
-      price: 120,
-      description:
-        "The Cruiser is a van for those who love to travel in comfort and luxury. With its many windows, spacious interior and ample storage space, the Cruiser offers a beautiful view wherever you go.",
-      imageUrl:
-        "https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png",
-      type: "luxury",
-    });
-    server.create("van", {
-      id: "6",
-      name: "Green Wonder",
-      price: 70,
-      description:
-        "With this van, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.",
-      imageUrl:
-        "https://assets.scrimba.com/advanced-react/react-router/green-wonder.png",
-      type: "rugged",
-    });
-  },
+export function makeServer() {
+  const otpCodes = new Map();
+  const verifiedEmails = new Set();
+  const tokens = new Map();
 
-  routes() {
-    this.namespace = "api";
-    this.logging = false;
+  let tokenCounter = 1;
 
-    this.get("/vans", (schema, request) => {
-      return schema.vans.all();
-    });
+  return createServer({
+    models: {
+      users: Model,
+    },
 
-    this.get("/vans/:id", (schema, request) => {
-      const id = request.params.id;
-      return schema.vans.find(id);
-    });
-  },
-});
+    seeds(server) {
+      server.create("user", {
+        email: "patient@test.com",
+        password: "123456",
+        name: "Test Patient",
+        role: "patient",
+      });
+
+      server.create("user", {
+        email: "pharmacy@test.com",
+        password: "123456",
+        name: "Test Pharmacy",
+        role: "pharmacy",
+        pharmacyName: "MedLink Pharmacy",
+        address: "Cairo, Egypt",
+      });
+    },
+
+    routes() {
+      this.namespace = "api";
+      this.logging = true;
+
+      // 1. Send OTP
+      this.post("/auth/send-otp", (schema, request) => {
+        const { email } = JSON.parse(request.requestBody);
+        const normalizedEmail = email.toLowerCase().trim();
+
+        const existingUser = schema.users.findBy({
+          email: normalizedEmail,
+        });
+
+        if (existingUser) {
+          return new Response(
+            409,
+            {},
+            { error: "Email is already registered" }
+          );
+        }
+
+        // Mock OTP: always 123456
+        otpCodes.set(normalizedEmail, "123456");
+
+        return {
+          message: "OTP sent successfully",
+        };
+      });
+
+      // 2. Verify OTP
+      this.post("/auth/verify-otp", (schema, request) => {
+        const { email, otp } = JSON.parse(request.requestBody);
+        const normalizedEmail = email.toLowerCase().trim();
+
+        const storedCode = otpCodes.get(normalizedEmail);
+
+        if (!storedCode || storedCode !== otp) {
+          return new Response(
+            400,
+            {},
+            { error: "Invalid or expired OTP" }
+          );
+        }
+
+        otpCodes.delete(normalizedEmail);
+        verifiedEmails.add(normalizedEmail);
+
+        return {
+          message: "Email verified successfully",
+          verified: true,
+        };
+      });
+
+      // 3. Register
+      this.post("/auth/register", (schema, request) => {
+        const data = JSON.parse(request.requestBody);
+        const email = data.email.toLowerCase().trim();
+
+        if (!verifiedEmails.has(email)) {
+          return new Response(
+            403,
+            {},
+            { error: "Email verification required" }
+          );
+        }
+
+        if (schema.users.findBy({ email })) {
+          return new Response(
+            409,
+            {},
+            { error: "Email already registered" }
+          );
+        }
+
+        if (!["patient", "pharmacy"].includes(data.role)) {
+          return new Response(
+            400,
+            {},
+            { error: "Invalid account type" }
+          );
+        }
+
+        const user = schema.users.create({
+          email,
+          password: data.password,
+          name: data.name,
+          role: data.role,
+          pharmacyName: data.pharmacyName || null,
+          address: data.address || null,
+        });
+
+        verifiedEmails.delete(email);
+
+        return {
+          message: "Account created successfully",
+          user: {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role,
+          },
+        };
+      });
+
+      // 4. Login
+      this.post("/auth/login", (schema, request) => {
+        const { email, password } = JSON.parse(request.requestBody);
+
+        const user = schema.users.findBy({
+          email: email.toLowerCase().trim(),
+        });
+
+        if (!user || user.password !== password) {
+          return new Response(
+            401,
+            {},
+            { error: "Invalid email or password" }
+          );
+        }
+
+        const accessToken = `mock-token-${tokenCounter++}`;
+
+        tokens.set(accessToken, user.id);
+
+        return {
+          accessToken,
+          user: {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role,
+          },
+        };
+      });
+
+      // 5. Get current authenticated user
+      this.get("/auth/me", (schema, request) => {
+        const authorization =
+          request.requestHeaders.Authorization ||
+          request.requestHeaders.authorization;
+
+        const token = authorization?.replace("Bearer ", "");
+        const userId = tokens.get(token);
+
+        if (!userId) {
+          return new Response(
+            401,
+            {},
+            { error: "Unauthorized" }
+          );
+        }
+
+        const user = schema.users.find(userId);
+
+        return {
+          user: {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role,
+          },
+        };
+      });
+
+      // 6. Logout
+      this.post("/auth/logout", (schema, request) => {
+        const authorization =
+          request.requestHeaders.Authorization ||
+          request.requestHeaders.authorization;
+
+        const token = authorization?.replace("Bearer ", "");
+
+        tokens.delete(token);
+
+        return {
+          message: "Logged out successfully",
+        };
+      });
+    },
+  });
+}
