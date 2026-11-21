@@ -109,9 +109,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     ref.listen(registerControllerProvider, (previous, next) {
       final finished = previous?.isLoading == true && next.hasValue;
       if (finished && !next.hasError) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(l10n.accountCreated)));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(l10n.accountCreated)));
         // Log in next, with the new email already filled in.
         context.pushReplacement(
           AppRoutes.login,
@@ -202,9 +201,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   autofillHints: const [AutofillHints.newPassword],
                   onFieldSubmitted: (_) => _createAccount(),
                   decoration: InputDecoration(
-                    helperText: l10n.passwordRule(
-                      Validators.minPasswordLength,
-                    ),
+                    helperText: l10n.passwordRule(Validators.minPasswordLength),
                     prefixIcon: const Icon(AppIcons.lock),
                     suffixIcon: IconButton(
                       onPressed: () =>
@@ -304,9 +301,7 @@ class _TermsCheckbox extends StatelessWidget {
             ),
             if (field.hasError)
               Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  start: AppSpacing.md,
-                ),
+                padding: const EdgeInsetsDirectional.only(start: AppSpacing.md),
                 child: Text(field.errorText ?? '', style: AppTextStyles.error),
               ),
           ],

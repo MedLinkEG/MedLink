@@ -110,14 +110,14 @@ void main() {
     expect(storage.token, isNull);
   });
 
-  test('register saves the token and returns the session', () async {
+  test('register creates the account without logging in', () async {
     final storage = _FakeTokenStorage();
     final repository = AuthRepositoryImpl(_FakeRemote(), storage);
 
     final session = await repository.register(_newAccount);
 
     expect(session.accessToken, 'new');
-    expect(storage.token, 'new');
+    expect(storage.token, isNull);
   });
 
   test('a failed register saves nothing', () async {

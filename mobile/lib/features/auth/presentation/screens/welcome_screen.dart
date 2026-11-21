@@ -123,9 +123,11 @@ class _FeatureRow extends StatelessWidget {
             height: AppSizes.featureTile,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppRadius.sm),
-              gradient: AppColors.brandGradient,
+              gradient: const LinearGradient(
+                colors: [AppColors.tileStart, AppColors.tileEnd],
+              ),
             ),
-            child: Icon(icon, size: AppSizes.iconMd, color: AppColors.onBrand),
+            child: Icon(icon, size: AppSizes.iconMd, color: AppColors.teal),
           ),
           const SizedBox(width: AppSpacing.md),
           Expanded(child: Text(text, style: AppTextStyles.bodyStrong)),

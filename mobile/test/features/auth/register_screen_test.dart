@@ -145,9 +145,7 @@ void main() {
     expect(repository.received?.password, '12345678');
   });
 
-  testWidgets('an email that is already used shows a message', (
-    tester,
-  ) async {
+  testWidgets('an email that is already used shows a message', (tester) async {
     await _pumpRegister(tester);
 
     await _fillForm(tester);
@@ -156,6 +154,24 @@ void main() {
 
     expect(
       find.text('An account with this email already exists. Log in instead.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('no internet shows a message', (tester) async {
+    await _pumpRegister(
+      tester,
+      _FakeAuthRepository(failure: const NetworkFailure()),
+    );
+
+    await _fillForm(tester);
+    await _tap(tester, find.byType(Checkbox));
+    await _tap(tester, _createAccountButton);
+
+    expect(
+      find.text(
+        'Can’t reach MedLink. Check your internet connection and try again.',
+      ),
       findsOneWidget,
     );
   });

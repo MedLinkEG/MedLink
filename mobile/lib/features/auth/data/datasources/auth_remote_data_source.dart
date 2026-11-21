@@ -16,15 +16,13 @@ class AuthRemoteDataSource {
     {'email': data.email, 'password': data.password},
   );
 
-  Future<AuthResponseModel> register(RegisterData data) => postForSession(
-    ApiConstants.register,
-    {
-      'fullName': data.fullName,
-      'email': data.email,
-      'phone': data.phone,
-      'password': data.password,
-    },
-  );
+  Future<AuthResponseModel> register(RegisterData data) =>
+      postForSession(ApiConstants.register, {
+        'fullName': data.fullName,
+        'email': data.email,
+        'phone': data.phone,
+        'password': data.password,
+      });
 
   Future<AuthResponseModel> postForSession(
     String path,
