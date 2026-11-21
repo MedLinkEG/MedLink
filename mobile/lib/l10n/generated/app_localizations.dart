@@ -265,6 +265,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong. Please try again.'**
   String get errorUnknown;
+
+  /// No description provided for @registerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account'**
+  String get registerTitle;
+
+  /// No description provided for @registerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'It only takes a minute. You’ll use your email to log in.'**
+  String get registerSubtitle;
+
+  /// No description provided for @fullNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get fullNameLabel;
+
+  /// No description provided for @fullNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Mohamed Bassel'**
+  String get fullNameHint;
+
+  /// No description provided for @fullNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your full name'**
+  String get fullNameRequired;
+
+  /// No description provided for @phoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile number'**
+  String get phoneLabel;
+
+  /// No description provided for @phoneHint.
+  ///
+  /// In en, this message translates to:
+  /// **'01012345678'**
+  String get phoneHint;
+
+  /// No description provided for @phoneRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your mobile number'**
+  String get phoneRequired;
+
+  /// No description provided for @phoneInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an Egyptian number starting with 010, 011, 012 or 015'**
+  String get phoneInvalid;
+
+  /// No description provided for @createPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a password'**
+  String get createPasswordLabel;
+
+  /// No description provided for @passwordRule.
+  ///
+  /// In en, this message translates to:
+  /// **'At least {min} characters'**
+  String passwordRule(int min);
+
+  /// No description provided for @passwordTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least {min} characters'**
+  String passwordTooShort(int min);
+
+  /// No description provided for @passwordTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Use {max} characters or fewer'**
+  String passwordTooLong(int max);
+
+  /// No description provided for @agreeTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'I agree to the Terms of Service and Privacy Policy.'**
+  String get agreeTerms;
+
+  /// No description provided for @termsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept the terms to continue'**
+  String get termsRequired;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @errorEmailTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'An account with this email already exists. Log in instead.'**
+  String get errorEmailTaken;
 }
 
 class _AppLocalizationsDelegate

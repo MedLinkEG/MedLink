@@ -98,4 +98,65 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorUnknown => 'Something went wrong. Please try again.';
+
+  @override
+  String get registerTitle => 'Create your account';
+
+  @override
+  String get registerSubtitle =>
+      'It only takes a minute. You’ll use your email to log in.';
+
+  @override
+  String get fullNameLabel => 'Full name';
+
+  @override
+  String get fullNameHint => 'Mohamed Bassel';
+
+  @override
+  String get fullNameRequired => 'Enter your full name';
+
+  @override
+  String get phoneLabel => 'Mobile number';
+
+  @override
+  String get phoneHint => '01012345678';
+
+  @override
+  String get phoneRequired => 'Enter your mobile number';
+
+  @override
+  String get phoneInvalid =>
+      'Enter an Egyptian number starting with 010, 011, 012 or 015';
+
+  @override
+  String get createPasswordLabel => 'Create a password';
+
+  @override
+  String passwordRule(int min) {
+    return 'At least $min characters';
+  }
+
+  @override
+  String passwordTooShort(int min) {
+    return 'Use at least $min characters';
+  }
+
+  @override
+  String passwordTooLong(int max) {
+    return 'Use $max characters or fewer';
+  }
+
+  @override
+  String get agreeTerms =>
+      'I agree to the Terms of Service and Privacy Policy.';
+
+  @override
+  String get termsRequired => 'Accept the terms to continue';
+
+  @override
+  String get alreadyHaveAccount => 'Already have an account?';
+
+  @override
+  String get errorEmailTaken =>
+      'An account with this email already exists. Log in instead.';
 }

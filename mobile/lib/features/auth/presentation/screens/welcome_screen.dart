@@ -62,7 +62,10 @@ class WelcomeScreen extends ConsumerWidget {
               _FeatureRow(icon: AppIcons.verified, text: l10n.featureVerified),
               const SizedBox(height: AppSpacing.xl),
 
-              FilledButton(onPressed: () {}, child: Text(l10n.createAccount)),
+              FilledButton(
+                onPressed: () => context.push(AppRoutes.register),
+                child: Text(l10n.createAccount),
+              ),
               const SizedBox(height: AppSpacing.md),
               OutlinedButton(
                 onPressed: () => context.push(AppRoutes.login),

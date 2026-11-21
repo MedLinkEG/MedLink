@@ -97,4 +97,64 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get errorUnknown => 'حدث خطأ ما. حاول مرة أخرى.';
+
+  @override
+  String get registerTitle => 'أنشئ حسابك';
+
+  @override
+  String get registerSubtitle =>
+      'دقيقة واحدة وتكون جاهزًا. ستستخدم بريدك الإلكتروني لتسجيل الدخول.';
+
+  @override
+  String get fullNameLabel => 'الاسم الكامل';
+
+  @override
+  String get fullNameHint => 'نور عادل';
+
+  @override
+  String get fullNameRequired => 'أدخل اسمك الكامل';
+
+  @override
+  String get phoneLabel => 'رقم الموبايل';
+
+  @override
+  String get phoneHint => '01012345678';
+
+  @override
+  String get phoneRequired => 'أدخل رقم الموبايل';
+
+  @override
+  String get phoneInvalid =>
+      'أدخل رقمًا مصريًا يبدأ بـ 010 أو 011 أو 012 أو 015';
+
+  @override
+  String get createPasswordLabel => 'أنشئ كلمة مرور';
+
+  @override
+  String passwordRule(int min) {
+    return '$min أحرف على الأقل';
+  }
+
+  @override
+  String passwordTooShort(int min) {
+    return 'استخدم $min أحرف على الأقل';
+  }
+
+  @override
+  String passwordTooLong(int max) {
+    return 'استخدم $max حرفًا أو أقل';
+  }
+
+  @override
+  String get agreeTerms => 'أوافق على شروط الخدمة وسياسة الخصوصية.';
+
+  @override
+  String get termsRequired => 'وافق على الشروط للمتابعة';
+
+  @override
+  String get alreadyHaveAccount => 'لديك حساب بالفعل؟';
+
+  @override
+  String get errorEmailTaken =>
+      'يوجد حساب بهذا البريد الإلكتروني بالفعل. سجّل الدخول بدلًا من ذلك.';
 }

@@ -195,7 +195,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   children: [
                     Text(l10n.newToMedLink, style: AppTextStyles.muted),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          context.pushReplacement(AppRoutes.register),
                       child: Text(l10n.createAccount),
                     ),
                   ],
