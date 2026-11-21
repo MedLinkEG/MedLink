@@ -8,7 +8,8 @@ final savedLocationsProvider = Provider<List<UserLocation>>(
 class SelectedLocationNotifier extends Notifier<UserLocation> {
   @override
   UserLocation build() => UserLocation.current;
-
+  // Notifier methods are how Riverpod state is changed.
+  // ignore: use_setters_to_change_properties
   void select(UserLocation location) => state = location;
 }
 
