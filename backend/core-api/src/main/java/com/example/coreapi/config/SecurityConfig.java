@@ -73,6 +73,10 @@ public class SecurityConfig {
                                 "/api/auth/register",
                                 "/api/auth/login"
                         ).permitAll()
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/actuator/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
 
