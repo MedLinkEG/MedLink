@@ -19,6 +19,7 @@ jobs:
       - name: Install dependencies and build web
         working-directory: ./mobile
         run: |
+          flutter create . --platforms web
           flutter pub get
           flutter build web --release
 
