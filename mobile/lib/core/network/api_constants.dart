@@ -7,6 +7,7 @@ abstract final class ApiConstants {
   static const defaultTokenType = 'Bearer';
 
   static const login = '/api/auth/login';
+  static const register = '/api/auth/register';
 
   static const connectTimeout = Duration(seconds: 15);
   static const receiveTimeout = Duration(seconds: 20);

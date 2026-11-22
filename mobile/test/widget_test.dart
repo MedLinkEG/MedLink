@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:medlink/app.dart';
 import 'package:medlink/core/storage/shared_preferences_provider.dart';
 import 'package:medlink/features/auth/presentation/screens/login_screen.dart';
+import 'package:medlink/features/auth/presentation/screens/register_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/welcome_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -69,5 +70,16 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(WelcomeScreen), findsOneWidget);
+  });
+
+  testWidgets('Create account on Welcome opens the create account screen', (
+    tester,
+  ) async {
+    await pumpApp(tester);
+
+    await tester.tap(find.widgetWithText(FilledButton, 'Create account'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(RegisterScreen), findsOneWidget);
   });
 }

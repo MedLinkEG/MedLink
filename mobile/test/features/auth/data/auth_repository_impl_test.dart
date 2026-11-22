@@ -5,6 +5,7 @@ import 'package:medlink/features/auth/data/datasources/auth_remote_data_source.d
 import 'package:medlink/features/auth/data/models/auth_response_model.dart';
 import 'package:medlink/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:medlink/features/auth/domain/entities/log_in_data.dart';
+import 'package:medlink/features/auth/domain/entities/register_data.dart';
 
 class _FakeTokenStorage implements TokenStorage {
   _FakeTokenStorage([this.token]);
@@ -35,6 +36,13 @@ class _FakeRemote implements AuthRemoteDataSource {
   }
 
   @override
+  Future<AuthResponseModel> register(RegisterData data) async {
+    final failure = this.failure;
+    if (failure != null) throw failure;
+    return const AuthResponseModel(accessToken: 'new', tokenType: 'Bearer');
+  }
+
+  @override
   Future<AuthResponseModel> postForSession(
     String path,
     Map<String, dynamic> body,
@@ -44,6 +52,13 @@ class _FakeRemote implements AuthRemoteDataSource {
 }
 
 const _credentials = LogInData(email: 'a@b.com', password: '12345678');
+
+const _newAccount = RegisterData(
+  fullName: 'Nour Adel',
+  email: 'a@b.com',
+  phone: '01012345678',
+  password: '12345678',
+);
 
 void main() {
   test('no saved token means no session', () async {
@@ -91,6 +106,30 @@ void main() {
     await expectLater(
       repository.logIn(_credentials),
       throwsA(isA<UnauthorizedFailure>()),
+    );
+    expect(storage.token, isNull);
+  });
+
+  test('register creates the account without logging in', () async {
+    final storage = _FakeTokenStorage();
+    final repository = AuthRepositoryImpl(_FakeRemote(), storage);
+
+    final session = await repository.register(_newAccount);
+
+    expect(session.accessToken, 'new');
+    expect(storage.token, isNull);
+  });
+
+  test('a failed register saves nothing', () async {
+    final storage = _FakeTokenStorage();
+    final repository = AuthRepositoryImpl(
+      _FakeRemote(failure: const ConflictFailure()),
+      storage,
+    );
+
+    await expectLater(
+      repository.register(_newAccount),
+      throwsA(isA<ConflictFailure>()),
     );
     expect(storage.token, isNull);
   });
