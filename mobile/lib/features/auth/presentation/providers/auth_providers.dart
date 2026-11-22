@@ -3,7 +3,9 @@ import 'package:medlink/core/network/dio_provider.dart';
 import 'package:medlink/core/storage/token_storage.dart';
 import 'package:medlink/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:medlink/features/auth/data/repositories/auth_repository_impl.dart';
+import 'package:medlink/features/auth/data/repositories/fake_password_reset_repository.dart';
 import 'package:medlink/features/auth/domain/repositories/auth_repository.dart';
+import 'package:medlink/features/auth/domain/repositories/password_reset_reopsitory.dart';
 import 'package:medlink/features/auth/domain/usecases/login_user.dart';
 import 'package:medlink/features/auth/domain/usecases/register_user.dart';
 
@@ -24,4 +26,9 @@ final logInUserProvider = Provider<LogInUser>(
 
 final registerUserProvider = Provider<RegisterUser>(
   (ref) => RegisterUser(ref.watch(authRepositoryProvider)),
+);
+
+/// Fake for now: change to the real repository when the backend is ready.
+final passwordResetRepositoryProvider = Provider<PasswordResetRepository>(
+  (ref) => const FakePasswordResetRepository(),
 );
