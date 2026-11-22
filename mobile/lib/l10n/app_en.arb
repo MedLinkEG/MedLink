@@ -66,5 +66,18 @@
   "termsRequired": "Accept the terms to continue",
   "alreadyHaveAccount": "Already have an account?",
   "errorEmailTaken": "An account with this email already exists. Log in instead.",
-  "accountCreated": "Account created. Log in to continue."
+  "accountCreated": "Account created. Log in to continue.",
+
+  "forgotTitle": "Forgot password?",
+  "forgotSubtitle": "Enter the email on your account and we’ll help you set a new password.",
+  "continueButton": "Continue",
+  "rememberPassword": "Remember your password?",
+  "resetTitle": "Set a new password",
+  "resetSubtitle": "Choose a new password for your account.",
+  "newPasswordLabel": "New password",
+  "confirmPasswordLabel": "Confirm password",
+  "confirmPasswordRequired": "Enter the password again",
+  "passwordsDontMatch": "Passwords don’t match",
+  "savePassword": "Save password",
+  "passwordChanged": "Password changed. Log in with your new password."
 }
