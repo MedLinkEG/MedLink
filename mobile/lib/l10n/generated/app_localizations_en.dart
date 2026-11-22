@@ -162,4 +162,42 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get accountCreated => 'Account created. Log in to continue.';
+
+  @override
+  String get forgotTitle => 'Forgot password?';
+
+  @override
+  String get forgotSubtitle =>
+      'Enter the email on your account and we’ll help you set a new password.';
+
+  @override
+  String get continueButton => 'Continue';
+
+  @override
+  String get rememberPassword => 'Remember your password?';
+
+  @override
+  String get resetTitle => 'Set a new password';
+
+  @override
+  String get resetSubtitle => 'Choose a new password for your account.';
+
+  @override
+  String get newPasswordLabel => 'New password';
+
+  @override
+  String get confirmPasswordLabel => 'Confirm password';
+
+  @override
+  String get confirmPasswordRequired => 'Enter the password again';
+
+  @override
+  String get passwordsDontMatch => 'Passwords don’t match';
+
+  @override
+  String get savePassword => 'Save password';
+
+  @override
+  String get passwordChanged =>
+      'Password changed. Log in with your new password.';
 }

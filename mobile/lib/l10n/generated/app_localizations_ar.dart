@@ -160,4 +160,42 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get accountCreated => 'تم إنشاء الحساب. سجّل الدخول للمتابعة.';
+
+  @override
+  String get forgotTitle => 'نسيت كلمة المرور؟';
+
+  @override
+  String get forgotSubtitle =>
+      'أدخل البريد الإلكتروني الخاص بحسابك وسنساعدك على تعيين كلمة مرور جديدة.';
+
+  @override
+  String get continueButton => 'متابعة';
+
+  @override
+  String get rememberPassword => 'تذكرت كلمة المرور؟';
+
+  @override
+  String get resetTitle => 'عيّن كلمة مرور جديدة';
+
+  @override
+  String get resetSubtitle => 'اختر كلمة مرور جديدة لحسابك.';
+
+  @override
+  String get newPasswordLabel => 'كلمة المرور الجديدة';
+
+  @override
+  String get confirmPasswordLabel => 'تأكيد كلمة المرور';
+
+  @override
+  String get confirmPasswordRequired => 'أدخل كلمة المرور مرة أخرى';
+
+  @override
+  String get passwordsDontMatch => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String get savePassword => 'حفظ كلمة المرور';
+
+  @override
+  String get passwordChanged =>
+      'تم تغيير كلمة المرور. سجّل الدخول بكلمة المرور الجديدة.';
 }
