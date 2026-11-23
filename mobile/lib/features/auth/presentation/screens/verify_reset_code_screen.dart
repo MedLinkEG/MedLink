@@ -28,8 +28,7 @@ class VerifyResetCodeScreen extends ConsumerStatefulWidget {
       _VerifyResetCodeScreenState();
 }
 
-class _VerifyResetCodeScreenState
-    extends ConsumerState<VerifyResetCodeScreen> {
+class _VerifyResetCodeScreenState extends ConsumerState<VerifyResetCodeScreen> {
   final _formKey = GlobalKey<FormState>();
   final _codeController = TextEditingController();
   bool _resending = false;

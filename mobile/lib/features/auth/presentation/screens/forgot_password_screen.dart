@@ -150,10 +150,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Text(l10n.rememberPassword, style: AppTextStyles.muted),
-                    TextButton(
-                      onPressed: context.pop,
-                      child: Text(l10n.logIn),
-                    ),
+                    TextButton(onPressed: context.pop, child: Text(l10n.logIn)),
                   ],
                 ),
               ],

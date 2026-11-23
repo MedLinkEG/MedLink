@@ -95,9 +95,8 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen> {
     ref.listen(resetPasswordControllerProvider, (previous, next) {
       final finished = previous?.isLoading == true && next.hasValue;
       if (finished && !next.hasError) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(l10n.passwordChanged)));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(l10n.passwordChanged)));
         context.pop(true);
       }
     });
@@ -137,9 +136,7 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen> {
                   textInputAction: TextInputAction.next,
                   autofillHints: const [AutofillHints.newPassword],
                   decoration: InputDecoration(
-                    helperText: l10n.passwordRule(
-                      Validators.minPasswordLength,
-                    ),
+                    helperText: l10n.passwordRule(Validators.minPasswordLength),
                     prefixIcon: const Icon(AppIcons.lock),
                     suffixIcon: _EyeButton(
                       hidden: _hidePassword,

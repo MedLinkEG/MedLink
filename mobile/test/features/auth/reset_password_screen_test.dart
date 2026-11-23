@@ -19,9 +19,7 @@ Future<void> _fill(
 }
 
 void main() {
-  testWidgets('shows the title, two password fields and Save', (
-    tester,
-  ) async {
+  testWidgets('shows the title, two password fields and Save', (tester) async {
     await pumpPasswordScreen(
       tester,
       _screen,
@@ -33,9 +31,7 @@ void main() {
     expect(_saveButton, findsOneWidget);
   });
 
-  testWidgets('empty fields show both errors and send nothing', (
-    tester,
-  ) async {
+  testWidgets('empty fields show both errors and send nothing', (tester) async {
     final repository = RecordingPasswordResetRepository();
     await pumpPasswordScreen(tester, _screen, repository);
 

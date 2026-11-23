@@ -1,6 +1,6 @@
 import 'package:medlink/features/auth/data/datasources/password_reset_remote_data_source.dart';
 import 'package:medlink/features/auth/domain/entities/reset_password_data.dart';
-import 'package:medlink/features/auth/domain/repositories/password_reset_repository.dart';
+import 'package:medlink/features/auth/domain/repositories/password_reset_reopsitory.dart';
 
 class PasswordResetRepositoryImpl implements PasswordResetRepository {
   const PasswordResetRepositoryImpl(this._remote);

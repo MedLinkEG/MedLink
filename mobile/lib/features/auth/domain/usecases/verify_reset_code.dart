@@ -1,4 +1,4 @@
-import 'package:medlink/features/auth/domain/repositories/password_reset_repository.dart';
+import 'package:medlink/features/auth/domain/repositories/password_reset_reopsitory.dart';
 
 class VerifyResetCode {
   const VerifyResetCode(this._repository);
