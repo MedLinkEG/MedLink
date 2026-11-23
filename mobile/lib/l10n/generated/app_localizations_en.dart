@@ -162,4 +162,79 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get accountCreated => 'Account created. Log in to continue.';
+
+  @override
+  String get forgotTitle => 'Forgot password?';
+
+  @override
+  String get forgotSubtitle =>
+      'Enter the email on your account and we’ll help you set a new password.';
+
+  @override
+  String get continueButton => 'Continue';
+
+  @override
+  String get rememberPassword => 'Remember your password?';
+
+  @override
+  String get resetTitle => 'Set a new password';
+
+  @override
+  String get resetSubtitle => 'Choose a new password for your account.';
+
+  @override
+  String get newPasswordLabel => 'New password';
+
+  @override
+  String get confirmPasswordLabel => 'Confirm password';
+
+  @override
+  String get confirmPasswordRequired => 'Enter the password again';
+
+  @override
+  String get passwordsDontMatch => 'Passwords don’t match';
+
+  @override
+  String get savePassword => 'Save password';
+
+  @override
+  String get passwordChanged =>
+      'Password changed. Log in with your new password.';
+
+  @override
+  String get verifyTitle => 'Check your email';
+
+  @override
+  String verifySubtitle(String email) {
+    return 'We sent a 6-digit code to $email. Enter it below.';
+  }
+
+  @override
+  String get codeLabel => 'Code';
+
+  @override
+  String get codeRequired => 'Enter the code from the email';
+
+  @override
+  String get codeIncomplete => 'Enter all 6 digits';
+
+  @override
+  String get verifyButton => 'Verify';
+
+  @override
+  String get didntGetCode => 'Didn’t get it?';
+
+  @override
+  String get resendCode => 'Resend code';
+
+  @override
+  String get codeResent => 'We sent you a new code.';
+
+  @override
+  String get errorWrongCode =>
+      'That code is wrong or has expired. Check it or resend a new one.';
+
+  @override
+  String get errorResetExpired =>
+      'This reset has expired. Go back and ask for a new code.';
 }

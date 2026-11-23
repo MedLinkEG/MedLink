@@ -13,11 +13,9 @@ import 'package:medlink/features/auth/domain/entities/register_data.dart';
 import 'package:medlink/features/auth/presentation/providers/register_controller.dart';
 import 'package:medlink/features/auth/presentation/widgets/auth_error_banner.dart';
 import 'package:medlink/features/auth/presentation/widgets/auth_field_label.dart';
+import 'package:medlink/features/auth/presentation/widgets/auth_logo.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
 
-/// Create account: full name, email, mobile number, password and the
-/// Terms checkbox. Sends them to POST /api/auth/register; on success the
-/// user goes to Log in with the email already filled in.
 class RegisterScreen extends ConsumerStatefulWidget {
   const RegisterScreen({super.key});
 
@@ -137,6 +135,11 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                const Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: AuthLogo(),
+                ),
+                const SizedBox(height: AppSpacing.xl),
                 Text(l10n.registerTitle, style: AppTextStyles.screenTitle),
                 const SizedBox(height: AppSpacing.sm),
                 Text(

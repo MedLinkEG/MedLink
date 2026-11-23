@@ -6,6 +6,8 @@ abstract final class Validators {
   static const minPasswordLength = 8;
   static const maxPasswordLength = 72;
 
+  static const resetCodeLength = 6;
+
   static bool isEmail(String value) => _email.hasMatch(value.trim());
 
   static bool isEgyptianPhone(String value) =>

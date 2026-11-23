@@ -8,6 +8,9 @@ abstract final class ApiConstants {
 
   static const login = '/api/auth/login';
   static const register = '/api/auth/register';
+  static const forgotPassword = '/api/auth/forgot-password';
+  static const verifyResetCode = '/api/auth/forgot-password/verify-otp';
+  static const resetPassword = '/api/auth/reset-password';
 
   static const connectTimeout = Duration(seconds: 15);
   static const receiveTimeout = Duration(seconds: 20);

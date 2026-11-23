@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:medlink/app.dart';
 import 'package:medlink/core/storage/shared_preferences_provider.dart';
+import 'package:medlink/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/login_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/register_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/welcome_screen.dart';
@@ -81,5 +82,18 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(RegisterScreen), findsOneWidget);
+  });
+
+  testWidgets('Forgot password on Log in opens the forgot password screen', (
+    tester,
+  ) async {
+    await pumpApp(tester);
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Log in'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Forgot password?'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ForgotPasswordScreen), findsOneWidget);
   });
 }
