@@ -61,5 +61,17 @@
   "confirmPasswordRequired": "أدخل كلمة المرور مرة أخرى",
   "passwordsDontMatch": "كلمتا المرور غير متطابقتين",
   "savePassword": "حفظ كلمة المرور",
-  "passwordChanged": "تم تغيير كلمة المرور. سجّل الدخول بكلمة المرور الجديدة."
+  "passwordChanged": "تم تغيير كلمة المرور. سجّل الدخول بكلمة المرور الجديدة.",
+
+  "verifyTitle": "تحقّق من بريدك",
+  "verifySubtitle": "أرسلنا رمزًا من 6 أرقام إلى {email}. أدخله بالأسفل.",
+  "codeLabel": "الرمز",
+  "codeRequired": "أدخل الرمز الموجود في البريد",
+  "codeIncomplete": "أدخل الأرقام الستة كلها",
+  "verifyButton": "تحقّق",
+  "didntGetCode": "لم يصلك؟",
+  "resendCode": "إعادة إرسال الرمز",
+  "codeResent": "أرسلنا لك رمزًا جديدًا.",
+  "errorWrongCode": "الرمز غير صحيح أو انتهت صلاحيته. تأكد منه أو اطلب رمزًا جديدًا.",
+  "errorResetExpired": "انتهت صلاحية إعادة التعيين. ارجع واطلب رمزًا جديدًا."
 }

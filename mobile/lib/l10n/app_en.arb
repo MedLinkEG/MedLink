@@ -79,5 +79,22 @@
   "confirmPasswordRequired": "Enter the password again",
   "passwordsDontMatch": "Passwords don’t match",
   "savePassword": "Save password",
-  "passwordChanged": "Password changed. Log in with your new password."
+  "passwordChanged": "Password changed. Log in with your new password.",
+
+  "verifyTitle": "Check your email",
+  "verifySubtitle": "We sent a 6-digit code to {email}. Enter it below.",
+  "@verifySubtitle": {
+    "placeholders": {
+      "email": {"type": "String"}
+    }
+  },
+  "codeLabel": "Code",
+  "codeRequired": "Enter the code from the email",
+  "codeIncomplete": "Enter all 6 digits",
+  "verifyButton": "Verify",
+  "didntGetCode": "Didn’t get it?",
+  "resendCode": "Resend code",
+  "codeResent": "We sent you a new code.",
+  "errorWrongCode": "That code is wrong or has expired. Check it or resend a new one.",
+  "errorResetExpired": "This reset has expired. Go back and ask for a new code."
 }

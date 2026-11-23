@@ -13,6 +13,13 @@ abstract final class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static const code = TextStyle(
+    color: AppColors.textPrimary,
+    fontSize: 28,
+    fontWeight: FontWeight.w700,
+    letterSpacing: 12,
+  );
+
   static const screenTitle = TextStyle(
     color: AppColors.textPrimary,
     fontSize: 28,

@@ -198,4 +198,41 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get passwordChanged =>
       'تم تغيير كلمة المرور. سجّل الدخول بكلمة المرور الجديدة.';
+
+  @override
+  String get verifyTitle => 'تحقّق من بريدك';
+
+  @override
+  String verifySubtitle(String email) {
+    return 'أرسلنا رمزًا من 6 أرقام إلى $email. أدخله بالأسفل.';
+  }
+
+  @override
+  String get codeLabel => 'الرمز';
+
+  @override
+  String get codeRequired => 'أدخل الرمز الموجود في البريد';
+
+  @override
+  String get codeIncomplete => 'أدخل الأرقام الستة كلها';
+
+  @override
+  String get verifyButton => 'تحقّق';
+
+  @override
+  String get didntGetCode => 'لم يصلك؟';
+
+  @override
+  String get resendCode => 'إعادة إرسال الرمز';
+
+  @override
+  String get codeResent => 'أرسلنا لك رمزًا جديدًا.';
+
+  @override
+  String get errorWrongCode =>
+      'الرمز غير صحيح أو انتهت صلاحيته. تأكد منه أو اطلب رمزًا جديدًا.';
+
+  @override
+  String get errorResetExpired =>
+      'انتهت صلاحية إعادة التعيين. ارجع واطلب رمزًا جديدًا.';
 }
