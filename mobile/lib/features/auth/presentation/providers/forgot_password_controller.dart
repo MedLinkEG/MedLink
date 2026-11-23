@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medlink/features/auth/presentation/providers/auth_providers.dart';
 
-final forgotPasswordControllerProvider =
+final AsyncNotifierProvider<ForgotPasswordController, void>
+forgotPasswordControllerProvider =
     AsyncNotifierProvider.autoDispose<ForgotPasswordController, void>(
       ForgotPasswordController.new,
     );

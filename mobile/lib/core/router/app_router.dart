@@ -5,6 +5,7 @@ import 'package:medlink/features/auth/presentation/screens/forgot_password_scree
 import 'package:medlink/features/auth/presentation/screens/login_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/register_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/reset_password_screen.dart';
+import 'package:medlink/features/auth/presentation/screens/verify_reset_code_screen.dart';
 import 'package:medlink/features/auth/presentation/screens/welcome_screen.dart';
 import 'package:medlink/features/home/presentation/home_page.dart';
 
@@ -30,9 +31,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (_, _) => const ForgotPasswordScreen(),
       ),
       GoRoute(
+        path: AppRoutes.verifyResetCode,
+        builder: (_, state) =>
+            VerifyResetCodeScreen(email: state.extra as String? ?? ''),
+      ),
+      GoRoute(
         path: AppRoutes.resetPassword,
         builder: (_, state) =>
-            ResetPasswordScreen(email: state.extra as String? ?? ''),
+            ResetPasswordScreen(resetToken: state.extra as String? ?? ''),
       ),
       GoRoute(path: AppRoutes.home, builder: (_, _) => const HomePage()),
     ],

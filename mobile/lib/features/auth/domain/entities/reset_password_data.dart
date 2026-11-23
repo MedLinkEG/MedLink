@@ -1,6 +1,9 @@
 class ResetPasswordData {
-  const ResetPasswordData({required this.email, required this.newPassword});
+  const ResetPasswordData({
+    required this.resetToken,
+    required this.newPassword,
+  });
 
-  final String email;
+  final String resetToken;
   final String newPassword;
 }

@@ -25,6 +25,7 @@ abstract final class AppSizes {
 
   static const double featureTile = 40;
   static const double logoTile = 52;
+  static const double codeBox = 56;
 
   static const double iconSm = 18;
   static const double iconMd = 20;

@@ -4,7 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medlink/features/auth/domain/entities/reset_password_data.dart';
 import 'package:medlink/features/auth/presentation/providers/auth_providers.dart';
 
-final resetPasswordControllerProvider =
+final AsyncNotifierProvider<ResetPasswordController, void>
+resetPasswordControllerProvider =
     AsyncNotifierProvider.autoDispose<ResetPasswordController, void>(
       ResetPasswordController.new,
     );

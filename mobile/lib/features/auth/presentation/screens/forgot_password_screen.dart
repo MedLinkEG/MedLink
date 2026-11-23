@@ -16,9 +16,6 @@ import 'package:medlink/features/auth/presentation/widgets/auth_field_label.dart
 import 'package:medlink/features/auth/presentation/widgets/auth_logo.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
 
-/// Forgot password, step 1: the user types their email. On success the
-/// Set a new password screen opens; when that one finishes, this screen
-/// closes too, so the user is back on Log in.
 class ForgotPasswordScreen extends ConsumerStatefulWidget {
   const ForgotPasswordScreen({super.key});
 
@@ -47,9 +44,9 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
         .requestReset(_emailController.text.trim());
   }
 
-  Future<void> _openResetScreen() async {
+  Future<void> _openVerifyScreen() async {
     final changed = await context.push<bool>(
-      AppRoutes.resetPassword,
+      AppRoutes.verifyResetCode,
       extra: _emailController.text.trim(),
     );
     if (!mounted) return;
@@ -80,7 +77,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
 
     ref.listen(forgotPasswordControllerProvider, (previous, next) {
       final finished = previous?.isLoading == true && next.hasValue;
-      if (finished && !next.hasError) unawaited(_openResetScreen());
+      if (finished && !next.hasError) unawaited(_openVerifyScreen());
     });
 
     return Scaffold(
@@ -167,4 +164,3 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
     );
   }
 }
- 

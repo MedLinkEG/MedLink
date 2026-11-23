@@ -6,6 +6,5 @@ class ResetPassword {
 
   final PasswordResetRepository _repository;
 
-  Future<void> call(ResetPasswordData data) =>
-      _repository.resetPassword(data);
+  Future<void> call(ResetPasswordData data) => _repository.resetPassword(data);
 }

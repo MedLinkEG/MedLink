@@ -14,10 +14,14 @@ import 'package:medlink/features/auth/presentation/widgets/auth_field_label.dart
 import 'package:medlink/features/auth/presentation/widgets/auth_logo.dart';
 import 'package:medlink/l10n/generated/app_localizations.dart';
 
+/// Forgot password, step 3: the new password, typed twice. On success it
+/// shows "Password changed" and closes with `true`, so Check your email and
+/// Forgot password close too and the user is back on Log in.
 class ResetPasswordScreen extends ConsumerStatefulWidget {
-  const ResetPasswordScreen({required this.email, super.key});
+  const ResetPasswordScreen({required this.resetToken, super.key});
 
-  final String email;
+  /// The token the backend gave back for the right code.
+  final String resetToken;
 
   @override
   ConsumerState<ResetPasswordScreen> createState() =>
@@ -47,7 +51,7 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen> {
         .read(resetPasswordControllerProvider.notifier)
         .resetPassword(
           ResetPasswordData(
-            email: widget.email,
+            resetToken: widget.resetToken,
             newPassword: _passwordController.text,
           ),
         );
@@ -55,7 +59,8 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen> {
 
   String _messageFor(Object? error, AppLocalizations l10n) {
     return switch (error) {
-      InvalidDataFailure() => l10n.errorInvalidData,
+      // A wrong or old reset token.
+      InvalidDataFailure() || UnauthorizedFailure() => l10n.errorResetExpired,
       NetworkFailure() => l10n.errorNetwork,
       ServerFailure() => l10n.errorServer,
       _ => l10n.errorUnknown,
@@ -195,7 +200,6 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen> {
   }
 }
 
-/// The eye button that shows or hides a password field.
 class _EyeButton extends StatelessWidget {
   const _EyeButton({
     required this.hidden,
